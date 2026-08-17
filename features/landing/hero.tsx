@@ -11,9 +11,9 @@ export const Hero: React.FC = () => {
   const router = useRouter();
 
   return (
-    <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 lg:pt-40 lg:pb-28 overflow-hidden bg-white">
+    <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 lg:pt-40 lg:pb-28 overflow-hidden bg-white dark:bg-[#0B0F19] transition-colors">
       {/* Background Soft Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#16A34A]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#16A34A]/5 dark:bg-[#16A34A]/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -24,7 +24,7 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#DCFCE7] border border-[#16A34A]/30 text-xs font-bold text-[#16A34A]"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#DCFCE7] dark:bg-emerald-950/60 border border-[#16A34A]/30 text-xs font-bold text-[#16A34A] dark:text-[#22C55E]"
             >
               <Sparkles className="h-3.5 w-3.5 shrink-0" />
               <span>AI Resume Studio & Real-Time ATS Analyzer</span>
@@ -35,9 +35,9 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#0F172A] leading-[1.12]"
+              className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#0F172A] dark:text-white leading-[1.12]"
             >
-              The AI Resume Builder That Gets You <span className="text-[#16A34A] underline decoration-[#16A34A]/30 underline-offset-8">Hired</span>.
+              The AI Resume Builder That Gets You <span className="text-[#16A34A] dark:text-[#22C55E] underline decoration-[#16A34A]/30 underline-offset-8">Hired</span>.
             </motion.h1>
 
             {/* Subheadline */}
@@ -45,10 +45,11 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-base sm:text-lg lg:text-xl text-[#64748B] leading-relaxed max-w-xl font-normal"
+              className="text-base sm:text-lg lg:text-xl text-[#64748B] dark:text-slate-300 leading-relaxed max-w-xl font-normal"
             >
               Reinvent your resume with AI bullet point generation, real-time ATS keyword matching, and recruiter-tested templates in minutes.
             </motion.p>
+
 
             {/* CTAs */}
             <motion.div

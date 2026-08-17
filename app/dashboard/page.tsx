@@ -20,6 +20,7 @@ import {
 import { RolezenLogo } from '@/icons';
 import { Button, Card, Badge, Modal, Input } from '@/components/ui';
 import { RESUME_TEMPLATES } from '@/constants/templates';
+import { ThemeToggle } from '@/theme/theme-provider';
 
 interface SavedProject {
   id: string;
@@ -112,26 +113,27 @@ export default function DashboardPage() {
   );
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] selection:bg-[#DCFCE7] selection:text-[#16A34A] flex flex-col font-sans">
+    <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#0B0F19] text-[#0F172A] dark:text-[#F8FAFC] selection:bg-[#DCFCE7] selection:text-[#16A34A] flex flex-col font-sans transition-colors">
       {/* Header Navigation */}
-      <header className="h-16 border-b border-[#E2E8F0] bg-white px-4 sm:px-8 flex items-center justify-between sticky top-0 z-30 shadow-xs">
+      <header className="h-16 border-b border-[#E2E8F0] dark:border-slate-800 bg-white dark:bg-[#0F172A] px-4 sm:px-8 flex items-center justify-between sticky top-0 z-30 shadow-xs">
         <Link href="/" className="flex items-center gap-2.5 group focus-visible:outline-none">
           <RolezenLogo size={32} className="transition-transform group-hover:scale-105" />
-          <span className="text-xl font-bold tracking-tight text-[#0F172A]">Rolezen</span>
+          <span className="text-xl font-bold tracking-tight text-[#0F172A] dark:text-white">Rolezen</span>
           <Badge status="neutral" className="ml-2 text-xs hidden xs:inline-flex">Workspace</Badge>
         </Link>
 
         <div className="flex items-center gap-3">
+          <ThemeToggle />
           <Button
             variant="ghost"
             size="sm"
             leftIcon={<LogOut className="h-4 w-4" />}
             onClick={() => router.push('/login')}
-            className="text-xs text-[#64748B] hover:text-[#0F172A]"
+            className="text-xs text-[#64748B] dark:text-slate-400 hover:text-[#0F172A] dark:hover:text-white"
           >
             Log Out
           </Button>
-          <div className="h-8 w-8 rounded-full bg-[#0F172A] text-white flex items-center justify-center text-xs font-bold ring-2 ring-[#16A34A]">
+          <div className="h-8 w-8 rounded-full bg-[#0F172A] dark:bg-[#16A34A] text-white flex items-center justify-center text-xs font-bold ring-2 ring-[#16A34A] shadow-xs">
             AV
           </div>
         </div>
@@ -140,13 +142,13 @@ export default function DashboardPage() {
       {/* Main Workspace Dashboard Content */}
       <main className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 space-y-10">
         {/* Welcome Banner & Quick Action Launchers */}
-        <div className="bg-white border border-[#E2E8F0] rounded-3xl p-6 sm:p-10 shadow-sm relative overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="bg-white dark:bg-[#0F172A] border border-[#E2E8F0] dark:border-slate-800 rounded-3xl p-6 sm:p-10 shadow-sm relative overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl z-10">
             <Badge status="primary" className="text-xs font-bold">Workspace Active</Badge>
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#0F172A]">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#0F172A] dark:text-white">
               Welcome back, Alex
             </h1>
-            <p className="text-sm text-[#64748B] leading-relaxed">
+            <p className="text-sm text-[#64748B] dark:text-slate-400 leading-relaxed">
               Launch your resume studio workspace, create targeted resume variants, or scan existing documents against ATS systems.
             </p>
           </div>
@@ -165,9 +167,9 @@ export default function DashboardPage() {
             <Button
               variant="outline"
               size="lg"
-              leftIcon={<Upload className="h-5 w-5 text-[#16A34A]" />}
+              leftIcon={<Upload className="h-5 w-5 text-[#16A34A] dark:text-[#22C55E]" />}
               onClick={() => setImportModalOpen(true)}
-              className="text-sm font-semibold"
+              className="text-sm font-semibold border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-[#0F172A] dark:text-white"
             >
               Import Resume PDF
             </Button>
@@ -178,8 +180,8 @@ export default function DashboardPage() {
         <div className="space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <h2 className="text-xl font-bold text-[#0F172A]">Resume Manager</h2>
-              <p className="text-xs text-[#64748B]">Manage your active resume projects and versions</p>
+              <h2 className="text-xl font-bold text-[#0F172A] dark:text-white">Resume Manager</h2>
+              <p className="text-xs text-[#64748B] dark:text-slate-400">Manage your active resume projects and versions</p>
             </div>
 
             {/* Search Bar */}
@@ -188,7 +190,7 @@ export default function DashboardPage() {
                 placeholder="Search resumes or target roles..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="bg-white text-xs h-10"
+                className="bg-white dark:bg-[#0F172A] text-xs h-10"
               />
             </div>
           </div>
@@ -200,13 +202,13 @@ export default function DashboardPage() {
                 key={project.id}
                 variant="hoverable"
                 padding="none"
-                className="bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden shadow-xs hover:border-[#16A34A] transition-all flex flex-col justify-between"
+                className="bg-white dark:bg-[#0F172A] border border-[#E2E8F0] dark:border-slate-800 rounded-2xl overflow-hidden shadow-xs hover:border-[#16A34A] dark:hover:border-[#16A34A] transition-all flex flex-col justify-between"
               >
                 {/* Header Bar */}
-                <div className="bg-[#F8FAFC] p-5 border-b border-[#E2E8F0] flex items-center justify-between">
+                <div className="bg-[#F8FAFC] dark:bg-slate-900/60 p-5 border-b border-[#E2E8F0] dark:border-slate-800 flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <FileText className="h-5 w-5 text-[#16A34A]" />
-                    <span className="text-xs font-semibold text-[#64748B]">{project.template}</span>
+                    <FileText className="h-5 w-5 text-[#16A34A] dark:text-[#22C55E]" />
+                    <span className="text-xs font-semibold text-[#64748B] dark:text-slate-400">{project.template}</span>
                   </div>
                   <Badge status="success" className="text-xs font-bold">
                     ATS {project.atsScore}/100
@@ -215,16 +217,16 @@ export default function DashboardPage() {
 
                 {/* Content */}
                 <div className="p-6 space-y-3">
-                  <h3 className="text-base font-bold text-[#0F172A] line-clamp-1">{project.title}</h3>
-                  <p className="text-xs text-[#16A34A] font-semibold">{project.targetRole}</p>
-                  <div className="flex items-center gap-1.5 text-[11px] text-[#64748B]">
+                  <h3 className="text-base font-bold text-[#0F172A] dark:text-white line-clamp-1">{project.title}</h3>
+                  <p className="text-xs text-[#16A34A] dark:text-[#22C55E] font-semibold">{project.targetRole}</p>
+                  <div className="flex items-center gap-1.5 text-[11px] text-[#64748B] dark:text-slate-400">
                     <Clock className="h-3.5 w-3.5" />
                     <span>Edited {project.updatedAt}</span>
                   </div>
                 </div>
 
                 {/* Actions Footer */}
-                <div className="p-4 border-t border-[#E2E8F0] bg-[#F8FAFC] flex items-center justify-between gap-2">
+                <div className="p-4 border-t border-[#E2E8F0] dark:border-slate-800 bg-[#F8FAFC] dark:bg-slate-900/40 flex items-center justify-between gap-2">
                   <Button
                     variant="primary"
                     size="sm"
@@ -238,7 +240,7 @@ export default function DashboardPage() {
                   <button
                     type="button"
                     onClick={() => handleDuplicate(project.id)}
-                    className="p-2 text-[#64748B] hover:text-[#0F172A] hover:bg-white rounded-lg border border-transparent hover:border-[#E2E8F0] transition-colors cursor-pointer"
+                    className="p-2 text-[#64748B] dark:text-slate-400 hover:text-[#0F172A] dark:hover:text-white hover:bg-white dark:hover:bg-slate-800 rounded-lg border border-transparent hover:border-[#E2E8F0] dark:hover:border-slate-700 transition-colors cursor-pointer"
                     title="Duplicate Resume"
                   >
                     <Copy className="h-4 w-4" />
@@ -247,7 +249,7 @@ export default function DashboardPage() {
                   <button
                     type="button"
                     onClick={() => handleDelete(project.id)}
-                    className="p-2 text-[#64748B] hover:text-[#EF4444] hover:bg-white rounded-lg border border-transparent hover:border-[#E2E8F0] transition-colors cursor-pointer"
+                    className="p-2 text-[#64748B] dark:text-slate-400 hover:text-[#EF4444] hover:bg-white dark:hover:bg-slate-800 rounded-lg border border-transparent hover:border-[#E2E8F0] dark:hover:border-slate-700 transition-colors cursor-pointer"
                     title="Delete Resume"
                   >
                     <Trash2 className="h-4 w-4" />
@@ -259,11 +261,11 @@ export default function DashboardPage() {
         </div>
 
         {/* Section 3: Template Gallery Picker */}
-        <div className="space-y-6 pt-6 border-t border-[#E2E8F0]">
+        <div className="space-y-6 pt-6 border-t border-[#E2E8F0] dark:border-slate-800">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-xl font-bold text-[#0F172A]">Template Gallery</h2>
-              <p className="text-xs text-[#64748B]">Select a recruiter-tested layout to start building</p>
+              <h2 className="text-xl font-bold text-[#0F172A] dark:text-white">Template Gallery</h2>
+              <p className="text-xs text-[#64748B] dark:text-slate-400">Select a recruiter-tested layout to start building</p>
             </div>
           </div>
 
@@ -273,20 +275,20 @@ export default function DashboardPage() {
                 key={tpl.id}
                 variant="hoverable"
                 padding="lg"
-                className="bg-white border border-[#E2E8F0] rounded-2xl flex flex-col justify-between hover:border-[#16A34A] transition-all space-y-4"
+                className="bg-white dark:bg-[#0F172A] border border-[#E2E8F0] dark:border-slate-800 rounded-2xl flex flex-col justify-between hover:border-[#16A34A] dark:hover:border-[#16A34A] transition-all space-y-4"
               >
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-base font-bold text-[#0F172A]">{tpl.name}</h3>
+                    <h3 className="text-base font-bold text-[#0F172A] dark:text-white">{tpl.name}</h3>
                     {tpl.badge && <Badge status="primary">{tpl.badge}</Badge>}
                   </div>
-                  <p className="text-xs text-[#64748B] leading-relaxed">{tpl.description}</p>
+                  <p className="text-xs text-[#64748B] dark:text-slate-400 leading-relaxed">{tpl.description}</p>
                 </div>
 
                 <Button
                   variant="outline"
                   size="sm"
-                  className="w-full justify-center text-xs h-9 hover:border-[#16A34A] hover:text-[#16A34A]"
+                  className="w-full justify-center text-xs h-9 hover:border-[#16A34A] hover:text-[#16A34A] border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-[#0F172A] dark:text-white"
                   onClick={handleCreateNew}
                 >
                   Use Template
@@ -300,7 +302,7 @@ export default function DashboardPage() {
       {/* Interactive Import Resume Modal with Functional File Picker */}
       <Modal isOpen={importModalOpen} onClose={() => setImportModalOpen(false)} title="Import Resume PDF">
         <form onSubmit={handleImportSubmit} className="space-y-4">
-          <p className="text-xs text-[#64748B] leading-relaxed">
+          <p className="text-xs text-[#64748B] dark:text-slate-400 leading-relaxed">
             Upload your existing PDF or DOCX resume. Rolezen AI will parse work history, degree records, and skills into structural JSON format.
           </p>
 
@@ -315,34 +317,34 @@ export default function DashboardPage() {
           {!selectedFile ? (
             <div
               onClick={() => fileInputRef.current?.click()}
-              className="border-2 border-dashed border-[#E2E8F0] hover:border-[#16A34A] rounded-2xl p-8 text-center space-y-3 cursor-pointer transition-colors bg-[#F8FAFC]"
+              className="border-2 border-dashed border-[#E2E8F0] dark:border-slate-700 hover:border-[#16A34A] rounded-2xl p-8 text-center space-y-3 cursor-pointer transition-colors bg-[#F8FAFC] dark:bg-slate-900/60"
             >
-              <Upload className="h-8 w-8 text-[#16A34A] mx-auto" />
+              <Upload className="h-8 w-8 text-[#16A34A] dark:text-[#22C55E] mx-auto" />
               <div>
-                <p className="text-xs font-bold text-[#0F172A]">Click to select PDF or DOCX file</p>
-                <p className="text-[11px] text-[#64748B] mt-1">Supports PDF, DOCX (Max 10MB)</p>
+                <p className="text-xs font-bold text-[#0F172A] dark:text-white">Click to select PDF or DOCX file</p>
+                <p className="text-[11px] text-[#64748B] dark:text-slate-400 mt-1">Supports PDF, DOCX (Max 10MB)</p>
               </div>
             </div>
           ) : (
-            <div className="p-4 bg-[#DCFCE7]/50 border border-[#16A34A]/30 rounded-2xl flex items-center justify-between">
+            <div className="p-4 bg-[#DCFCE7]/50 dark:bg-emerald-950/40 border border-[#16A34A]/30 rounded-2xl flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <FileCheck className="h-6 w-6 text-[#16A34A]" />
+                <FileCheck className="h-6 w-6 text-[#16A34A] dark:text-[#22C55E]" />
                 <div>
-                  <p className="text-xs font-bold text-[#0F172A]">{selectedFile.name}</p>
-                  <p className="text-[11px] text-[#64748B]">{(selectedFile.size / 1024).toFixed(1)} KB</p>
+                  <p className="text-xs font-bold text-[#0F172A] dark:text-white">{selectedFile.name}</p>
+                  <p className="text-[11px] text-[#64748B] dark:text-slate-400">{(selectedFile.size / 1024).toFixed(1)} KB</p>
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => setSelectedFile(null)}
-                className="p-1 text-[#64748B] hover:text-[#EF4444] rounded-lg transition-colors cursor-pointer"
+                className="p-1 text-[#64748B] dark:text-slate-400 hover:text-[#EF4444] rounded-lg transition-colors cursor-pointer"
               >
                 <X className="h-4 w-4" />
               </button>
             </div>
           )}
 
-          <div className="flex items-center justify-end gap-3 pt-4 border-t border-[#E2E8F0]">
+          <div className="flex items-center justify-end gap-3 pt-4 border-t border-[#E2E8F0] dark:border-slate-800">
             <Button variant="ghost" size="sm" type="button" onClick={() => setImportModalOpen(false)}>
               Cancel
             </Button>

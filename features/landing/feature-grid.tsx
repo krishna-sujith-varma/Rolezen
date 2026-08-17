@@ -11,27 +11,27 @@ export const FeatureGrid: React.FC = () => {
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'builder':
-        return <ResumeIcon className="h-6 w-6 text-[#16A34A]" />;
+        return <ResumeIcon className="h-6 w-6 text-[#16A34A] dark:text-[#22C55E]" />;
       case 'optimizer':
-        return <AIIcon className="h-6 w-6 text-[#16A34A]" />;
+        return <AIIcon className="h-6 w-6 text-[#16A34A] dark:text-[#22C55E]" />;
       case 'ats':
-        return <ATSIcon className="h-6 w-6 text-[#16A34A]" />;
+        return <ATSIcon className="h-6 w-6 text-[#16A34A] dark:text-[#22C55E]" />;
       default:
-        return <ResumeIcon className="h-6 w-6 text-[#16A34A]" />;
+        return <ResumeIcon className="h-6 w-6 text-[#16A34A] dark:text-[#22C55E]" />;
     }
   };
 
   return (
-    <section id="features" className="py-20 md:py-24 bg-white">
+    <section id="features" className="py-20 md:py-24 bg-white dark:bg-[#0B0F19] transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 space-y-12 md:space-y-16">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <Badge status="primary">3 Core Modules</Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#0F172A]">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#0F172A] dark:text-white">
             Everything you need for a job-winning resume.
           </h2>
-          <p className="text-base sm:text-lg text-[#64748B] leading-relaxed">
-            Stop guessing what recruiters want. CareerFlow gives you an end-to-end studio to build, optimize, and verify your application.
+          <p className="text-base sm:text-lg text-[#64748B] dark:text-slate-400 leading-relaxed">
+            Stop guessing what recruiters want. Rolezen gives you an end-to-end studio to build, optimize, and verify your application.
           </p>
         </div>
 
@@ -48,12 +48,12 @@ export const FeatureGrid: React.FC = () => {
               <Card
                 variant="hoverable"
                 padding="lg"
-                className="h-full flex flex-col justify-between border border-[#E2E8F0] hover:border-[#16A34A] transition-all group p-6 sm:p-8"
+                className="h-full flex flex-col justify-between border border-[#E2E8F0] dark:border-slate-800 hover:border-[#16A34A] dark:hover:border-[#16A34A] transition-all group p-6 sm:p-8 bg-white dark:bg-[#0F172A]"
               >
                 <div className="space-y-5">
                   {/* Icon & Badge Header */}
                   <div className="flex items-center justify-between">
-                    <div className="h-12 w-12 rounded-2xl bg-[#DCFCE7] flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <div className="h-12 w-12 rounded-2xl bg-[#DCFCE7] dark:bg-emerald-950/60 flex items-center justify-center group-hover:scale-110 transition-transform">
                       {getIcon(feature.iconName)}
                     </div>
                     {feature.badge && <Badge status="neutral">{feature.badge}</Badge>}
@@ -61,17 +61,17 @@ export const FeatureGrid: React.FC = () => {
 
                   {/* Title & Description */}
                   <div className="space-y-2">
-                    <h3 className="text-xl font-bold text-[#0F172A]">{feature.title}</h3>
-                    <p className="text-xs font-semibold text-[#16A34A]">{feature.subtitle}</p>
-                    <p className="text-sm text-[#64748B] leading-relaxed pt-1">{feature.description}</p>
+                    <h3 className="text-xl font-bold text-[#0F172A] dark:text-white">{feature.title}</h3>
+                    <p className="text-xs font-semibold text-[#16A34A] dark:text-[#22C55E]">{feature.subtitle}</p>
+                    <p className="text-sm text-[#64748B] dark:text-slate-400 leading-relaxed pt-1">{feature.description}</p>
                   </div>
                 </div>
 
                 {/* Highlights Checklist */}
-                <div className="pt-6 border-t border-[#E2E8F0] mt-6 space-y-2">
+                <div className="pt-6 border-t border-[#E2E8F0] dark:border-slate-800 mt-6 space-y-2">
                   {feature.highlights.map((item) => (
-                    <div key={item} className="flex items-center gap-2 text-xs font-semibold text-[#0F172A]">
-                      <div className="h-4 w-4 rounded-full bg-emerald-50 text-[#16A34A] flex items-center justify-center shrink-0">
+                    <div key={item} className="flex items-center gap-2 text-xs font-semibold text-[#0F172A] dark:text-slate-200">
+                      <div className="h-4 w-4 rounded-full bg-emerald-50 dark:bg-emerald-950/80 text-[#16A34A] dark:text-[#22C55E] flex items-center justify-center shrink-0">
                         <Check className="h-3 w-3" />
                       </div>
                       <span>{item}</span>

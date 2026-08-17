@@ -8,16 +8,16 @@ import { Star } from 'lucide-react';
 
 export const Testimonials: React.FC = () => {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-white dark:bg-[#0B0F19] transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <Badge status="neutral">Verified Candidate Feedback</Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#0F172A]">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#0F172A] dark:text-white">
             Loved by candidates at top tech companies.
           </h2>
-          <p className="text-base sm:text-lg text-[#64748B] leading-relaxed">
-            See how CareerFlow helped job seekers land offers at Stripe, Linear, Vercel, and Apple.
+          <p className="text-base sm:text-lg text-[#64748B] dark:text-slate-400 leading-relaxed">
+            See how Rolezen helped job seekers land offers at Stripe, Linear, Vercel, and Apple.
           </p>
         </div>
 
@@ -34,7 +34,7 @@ export const Testimonials: React.FC = () => {
               <Card
                 variant="hoverable"
                 padding="lg"
-                className="h-full flex flex-col justify-between border border-[#E2E8F0] bg-white rounded-2xl p-6"
+                className="h-full flex flex-col justify-between border border-[#E2E8F0] dark:border-slate-800 bg-white dark:bg-[#0F172A] rounded-2xl p-6"
               >
                 <div className="space-y-4">
                   {/* Rating Stars & Outcome Highlight */}
@@ -44,24 +44,24 @@ export const Testimonials: React.FC = () => {
                         <Star key={i} className="h-4 w-4 fill-current" />
                       ))}
                     </div>
-                    <span className="text-[11px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2 py-0.5 rounded-full">
+                    <span className="text-[11px] font-bold text-[#16A34A] dark:text-[#22C55E] bg-[#DCFCE7] dark:bg-emerald-950/60 px-2 py-0.5 rounded-full">
                       {item.highlight}
                     </span>
                   </div>
 
                   {/* Testimonial Quote */}
-                  <p className="text-sm text-[#0F172A] leading-relaxed font-normal italic">
+                  <p className="text-sm text-[#0F172A] dark:text-slate-200 leading-relaxed font-normal italic">
                     &ldquo;{item.content}&rdquo;
                   </p>
                 </div>
 
                 {/* Author User Info */}
-                <div className="pt-6 border-t border-[#E2E8F0] mt-6 flex items-center gap-3">
+                <div className="pt-6 border-t border-[#E2E8F0] dark:border-slate-800 mt-6 flex items-center gap-3">
                   <Avatar name={item.name} size="md" />
                   <div>
-                    <h4 className="text-sm font-bold text-[#0F172A]">{item.name}</h4>
-                    <p className="text-xs text-[#64748B]">
-                      {item.role} @ <span className="font-semibold text-[#0F172A]">{item.company}</span>
+                    <h4 className="text-sm font-bold text-[#0F172A] dark:text-white">{item.name}</h4>
+                    <p className="text-xs text-[#64748B] dark:text-slate-400">
+                      {item.role} @ <span className="font-semibold text-[#0F172A] dark:text-white">{item.company}</span>
                     </p>
                   </div>
                 </div>

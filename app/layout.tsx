@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { SITE_METADATA } from '@/constants/metadata';
+import { ThemeProvider } from '@/theme/theme-provider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -50,16 +51,17 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased selection:bg-[#DCFCE7] selection:text-[#16A34A]">
-        {children}
+      <body className="font-sans antialiased selection:bg-[#DCFCE7] selection:text-[#16A34A] bg-white dark:bg-[#0B0F19] text-[#0F172A] dark:text-[#F8FAFC]">
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );
 }
+

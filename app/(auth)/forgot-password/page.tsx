@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { AuthLayout } from '@/layouts/auth-layout';
-import { Input, Button, Badge } from '@/components/ui';
-import { ArrowLeft, CheckCircle2, Mail } from 'lucide-react';
+import { Input, Button } from '@/components/ui';
+import { ArrowLeft, CheckCircle2 } from 'lucide-react';
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState('');
@@ -27,17 +27,17 @@ export default function ForgotPasswordPage() {
     >
       {submitted ? (
         <div className="text-center space-y-4 py-4">
-          <div className="h-12 w-12 rounded-2xl bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center mx-auto">
+          <div className="h-12 w-12 rounded-2xl bg-[#DCFCE7] dark:bg-emerald-950/50 text-[#16A34A] dark:text-[#22C55E] flex items-center justify-center mx-auto">
             <CheckCircle2 className="h-6 w-6" />
           </div>
-          <h3 className="text-lg font-bold text-[#0F172A]">Reset Link Sent</h3>
-          <p className="text-xs text-[#64748B] leading-relaxed">
-            We sent a password reset link to <strong className="text-[#0F172A]">{email}</strong>. Please check your inbox.
+          <h3 className="text-lg font-bold text-[#0F172A] dark:text-white">Reset Link Sent</h3>
+          <p className="text-xs text-[#64748B] dark:text-slate-400 leading-relaxed">
+            We sent a password reset link to <strong className="text-[#0F172A] dark:text-white">{email}</strong>. Please check your inbox.
           </p>
           <div className="pt-4">
             <Link
               href="/login"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#16A34A] hover:underline"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#16A34A] dark:text-[#22C55E] hover:underline"
             >
               <ArrowLeft className="h-4 w-4" />
               Return to Login
@@ -64,9 +64,9 @@ export default function ForgotPasswordPage() {
             Send Reset Instructions
           </Button>
 
-          <p className="text-center text-xs text-[#64748B] pt-4">
+          <p className="text-center text-xs text-[#64748B] dark:text-slate-400 pt-4">
             Remembered your password?{' '}
-            <Link href="/login" className="font-bold text-[#16A34A] hover:underline">
+            <Link href="/login" className="font-bold text-[#16A34A] dark:text-[#22C55E] hover:underline">
               Back to Login
             </Link>
           </p>

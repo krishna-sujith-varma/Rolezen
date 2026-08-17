@@ -12,13 +12,13 @@ export interface CardProps extends HTMLMotionProps<'div'> {
 
 export const Card = React.forwardRef<HTMLDivElement, CardProps>(
   ({ variant = 'default', padding = 'md', className, children, ...props }, ref) => {
-    const baseStyles = 'bg-white rounded-2xl border border-[#E2E8F0] shadow-sm transition-all duration-200';
+    const baseStyles = 'bg-white dark:bg-[#0F172A] rounded-2xl border border-[#E2E8F0] dark:border-slate-800 shadow-sm transition-all duration-200';
 
     const variants = {
       default: '',
-      hoverable: 'hover:border-[#CBD5E1] hover:shadow-md hover:-translate-y-1',
-      glass: 'bg-white/80 backdrop-blur-md border-white/40 shadow-glass',
-      bordered: 'border-2 border-[#E2E8F0]',
+      hoverable: 'hover:border-[#CBD5E1] dark:hover:border-slate-700 hover:shadow-md hover:-translate-y-0.5',
+      glass: 'bg-white/80 dark:bg-[#0F172A]/80 backdrop-blur-md border-white/40 dark:border-slate-800/80 shadow-glass',
+      bordered: 'border-2 border-[#E2E8F0] dark:border-slate-800',
     };
 
     const paddings = {

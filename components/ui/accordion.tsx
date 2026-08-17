@@ -25,21 +25,21 @@ export const Accordion: React.FC<AccordionProps> = ({ items, defaultOpenId, clas
   };
 
   return (
-    <div className={cn('divide-y divide-[#E2E8F0] border-y border-[#E2E8F0]', className)}>
+    <div className={cn('divide-y divide-[#E2E8F0] dark:divide-slate-800 border-y border-[#E2E8F0] dark:border-slate-800', className)}>
       {items.map((item) => {
         const isOpen = openId === item.id;
         return (
           <div key={item.id} className="py-4 transition-colors">
             <button
               onClick={() => toggle(item.id)}
-              className="flex w-full items-center justify-between text-left text-base font-semibold text-[#0F172A] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-lg py-1 cursor-pointer"
+              className="flex w-full items-center justify-between text-left text-base font-semibold text-[#0F172A] dark:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-lg py-1 cursor-pointer"
               aria-expanded={isOpen}
             >
               <span>{item.question}</span>
               <ChevronDown
                 className={cn(
-                  'h-5 w-5 text-[#64748B] transition-transform duration-300 shrink-0 ml-4',
-                  isOpen && 'transform rotate-180 text-[#16A34A]'
+                  'h-5 w-5 text-[#64748B] dark:text-slate-400 transition-transform duration-300 shrink-0 ml-4',
+                  isOpen && 'transform rotate-180 text-[#16A34A] dark:text-[#22C55E]'
                 )}
               />
             </button>
@@ -52,7 +52,7 @@ export const Accordion: React.FC<AccordionProps> = ({ items, defaultOpenId, clas
                   transition={{ duration: 0.25, ease: 'easeInOut' }}
                   className="overflow-hidden"
                 >
-                  <p className="pt-3 text-sm leading-relaxed text-[#64748B] pr-8">{item.answer}</p>
+                  <p className="pt-3 text-sm leading-relaxed text-[#64748B] dark:text-slate-400 pr-8">{item.answer}</p>
                 </motion.div>
               )}
             </AnimatePresence>

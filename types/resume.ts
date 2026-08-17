@@ -45,6 +45,8 @@ export interface Project {
   link?: string;
 }
 
+export type SectionId = 'personal' | 'experience' | 'education' | 'skills' | 'projects';
+
 export interface ResumeData {
   id: string;
   title: string;
@@ -53,7 +55,9 @@ export interface ResumeData {
   education: Education[];
   skills: SkillCategory[];
   projects: Project[];
+  sectionOrder?: SectionId[];
   createdAt: string;
   updatedAt: string;
   atsScore?: number;
 }
+

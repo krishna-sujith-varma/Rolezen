@@ -15,9 +15,10 @@ import { Footer } from '@/features/landing/footer';
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-white text-[#0F172A] selection:bg-[#DCFCE7] selection:text-[#16A34A] antialiased">
+    <div className="min-h-screen bg-white dark:bg-[#0B0F19] text-[#0F172A] dark:text-[#F8FAFC] selection:bg-[#DCFCE7] selection:text-[#16A34A] antialiased transition-colors">
       {/* Navbar */}
       <Navbar />
+
 
       {/* Main Content */}
       <main>
