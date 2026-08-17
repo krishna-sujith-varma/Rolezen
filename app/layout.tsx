@@ -1,19 +1,12 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
 import { SITE_METADATA } from '@/constants/metadata';
 import { ThemeProvider } from '@/theme/theme-provider';
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-});
-
 export const metadata: Metadata = {
-  title: SITE_METADATA.title,
-  description: SITE_METADATA.description,
-  keywords: ['Resume Builder', 'ATS Resume Analyzer', 'AI Resume Optimizer', 'Rolezen', 'CV Creator'],
+  title: `${SITE_METADATA.title} – Forbes' Top Pick Alternative. Trusted by Thousands`,
+  description: 'Build ATS-proof resumes that get callbacks. Real-time ATS keyword matching, recruiter-approved templates, and AI copilot in minutes.',
+  keywords: ['Resume Builder', 'ATS Resume Analyzer', 'AI Resume Optimizer', 'Rolezen', 'CV Creator', 'Rezi Alternative'],
   authors: [{ name: 'Rolezen Technologies Inc.' }],
   openGraph: {
     title: SITE_METADATA.title,
@@ -51,8 +44,10 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={inter.variable} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -64,4 +59,3 @@ export default function RootLayout({
     </html>
   );
 }
-
